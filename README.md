@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PhysioFit
 
-## Getting Started
+PhysioFit is a modern healthcare and wellness platform for physiotherapist Gitana, combining physiotherapy, massage and wellness services with a patient-friendly booking flow and an admin dashboard for appointments, services, and business management.
 
-First, run the development server:
+## Tech stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- PostgreSQL
+- Supabase
+
+## Features
+
+- Responsive public website with home, about, physiotherapy, massage, services, booking, social and contact pages
+- Booking workflow with service selection, time-slot logic and manual approval
+- Admin dashboard prototype for appointments, overview, and service visibility
+- Central social links configuration with placeholders for real URLs
+- Environment variable setup for Supabase connection
+- Database schema starter for future patient, booking, and service management
+
+## Local installation
+
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Open http://localhost:3000 to view the website.
+
+## Environment variables
+
+Create a local file named `.env.local` and add your Supabase credentials:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-url.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Do not commit `.env.local` or any real API keys or secrets. Keep service-role credentials only in the server environment and never expose them in frontend code.
+
+## Supabase setup
+
+1. Create a Supabase project.
+2. Copy the project URL and anon key into `.env.local`.
+3. Use the schema in `supabase/schema.sql` as the starting point for tables such as services, appointments, patients, availability, and social posts.
+4. Configure row-level security (RLS) and access policies before production use.
+
+## Available scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Production build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notes
 
-## Learn More
+- Use placeholders wherever real patient, clinic, or business information is not yet available.
+- Booking prices and availability should be managed from the database instead of hard-coded in the frontend.
+- This project is structured for future expansion into a shared backend for a mobile app.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
